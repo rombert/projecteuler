@@ -1,18 +1,27 @@
 package ro.robertmunteanu.eulerproject.problem2;
 
+import static ro.robertmunteanu.eulerproject.util.AssertUtils.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem2Solution {
+/**
+ * Calculates the result without taking advantage of the fact that only even numbers should be
+ * added 
+ * 
+ * @author Robert Munteanu
+ *
+ */
+public class Problem2BruteForceSolution {
 
     // --------------------------------------------------------------------------------------------
     // Class fields
     // --------------------------------------------------------------------------------------------
 
-    private static List<Integer> _resultCache = new ArrayList<Integer>();
+    private static List<Long> _resultCache = new ArrayList<Long>();
     static {
-        _resultCache.add(1);
-        _resultCache.add(2);
+        _resultCache.add(1L);
+        _resultCache.add(2L);
     }
 
     // --------------------------------------------------------------------------------------------
@@ -23,7 +32,11 @@ public class Problem2Solution {
 
         long limit = 4 * 1000 * 1000;
 
-        System.out.println(fibSum(limit));
+        long result = fibSum(limit);
+
+        System.out.println(result);
+
+        assertEquals(result, 4613732);
 
     }
 
@@ -59,11 +72,9 @@ public class Problem2Solution {
         if (value <= 2)
             return value;
 
-        int result = _resultCache.get(_resultCache.size() - 1) + _resultCache.get(_resultCache.size() - 2);
+        long result = _resultCache.get(_resultCache.size() - 1) + _resultCache.get(_resultCache.size() - 2);
 
         _resultCache.add(result);
-
-        System.out.println(value + " -> " + result);
 
         return result;
     }
