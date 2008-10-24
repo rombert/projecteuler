@@ -12,7 +12,7 @@ import static ro.robertmunteanu.eulerproject.util.AssertUtils.assertEquals;
 public class Problem1BruteForceSolution {
 
     // --------------------------------------------------------------------------------------------
-    // Instance methods
+    // Class methods
     // --------------------------------------------------------------------------------------------
 
     public static void main(String[] args) {
